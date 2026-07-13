@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Master - Calendar</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <h1 class="logo">Task Master</h1>
+    <ul class="nav-links">
+      <li><a href="calendar.html" class="active">Calendar</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container">
+    <h2>Calendar</h2>
+
+    <!-- Month Navigation -->
+    <div class="calendar-header">
+      <button onclick="changeMonth(-1)">&#8592; Prev</button>
+      <h3 id="monthLabel">Month Year</h3>
+      <button onclick="changeMonth(1)">Next &#8594;</button>
+    </div>
+
+    <!-- Calendar Grid -->
+    <div class="calendar-grid" id="calendarGrid">
+      <!-- Days of week headers -->
+      <div class="day-header">Sun</div>
+      <div class="day-header">Mon</div>
+      <div class="day-header">Tue</div>
+      <div class="day-header">Wed</div>
+      <div class="day-header">Thu</div>
+      <div class="day-header">Fri</div>
+      <div class="day-header">Sat</div>
+      <!-- Calendar days inserted by JavaScript -->
+    </div>
+
+    <!-- Add Event Panel -->
+    <div class="event-panel">
+      <h3>Add Task to Date</h3>
+      <p id="selectedDateLabel">No date selected. Click a day above.</p>
+      <input type="text" id="eventInput" placeholder="Task description..." />
+      <select id="eventPriority">
+        <option value="low">Low Priority</option>
+        <option value="medium" selected>Medium Priority</option>
+        <option value="high">High Priority</option>
+      </select>
+      <button onclick="addEvent()">Add Task</button>
+    </div>
+
+    <!-- Events for selected day -->
+    <div class="event-list-section">
+      <h3>Tasks for <span id="eventDayTitle">selected day</span></h3>
+      <ul id="eventList" class="task-list">
+        <li class="empty-message">Select a day to see tasks.</li>
+      </ul>
+    </div>
+  </main>
+
+  <script src="calendar.js"></script>
+</body>
+</html>

@@ -1,0 +1,319 @@
+/* ===== Reset & Base ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f4f8;
+  color: #333;
+}
+
+/* ===== Navigation Bar ===== */
+.navbar {
+  background-color: #4a90d9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 30px;
+}
+
+.logo {
+  color: white;
+  font-size: 24px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 6px 12px;
+  border-radius: 5px;
+}
+
+.nav-links a:hover {
+  background-color: #3178b5;
+}
+
+.nav-links a.active {
+  background-color: #1a5a96;
+  font-weight: bold;
+}
+
+/* ===== Main Container ===== */
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.container h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #4a90d9;
+}
+
+.subtitle {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* ===== Add Task Form ===== */
+.add-task-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.add-task-form input,
+.add-task-form select {
+  padding: 10px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.add-task-form input {
+  flex: 1;
+  min-width: 200px;
+}
+
+/* ===== Buttons ===== */
+button {
+  padding: 10px 18px;
+  font-size: 15px;
+  background-color: #4a90d9;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #3178b5;
+}
+
+button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+/* ===== Filter Buttons ===== */
+.filter-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filter-btn {
+  background-color: #ddd;
+  color: #333;
+}
+
+.filter-btn:hover {
+  background-color: #bbb;
+}
+
+.filter-btn.active-filter {
+  background-color: #4a90d9;
+  color: white;
+}
+
+/* ===== Task List ===== */
+.task-list {
+  list-style: none;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border-left: 5px solid #ccc;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.task-item.high {
+  border-left-color: #e74c3c;
+}
+
+.task-item.medium {
+  border-left-color: #f39c12;
+}
+
+.task-item.low {
+  border-left-color: #2ecc71;
+}
+
+.task-item.done .task-text {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+.task-text {
+  flex: 1;
+  font-size: 15px;
+}
+
+.task-badge {
+  font-size: 12px;
+  padding: 3px 8px;
+  border-radius: 10px;
+  color: white;
+  margin-left: 10px;
+}
+
+.badge-high   { background-color: #e74c3c; }
+.badge-medium { background-color: #f39c12; }
+.badge-low    { background-color: #2ecc71; }
+
+.task-actions {
+  display: flex;
+  gap: 6px;
+  margin-left: 12px;
+}
+
+.task-actions button {
+  padding: 5px 10px;
+  font-size: 13px;
+}
+
+.btn-done {
+  background-color: #2ecc71;
+}
+
+.btn-done:hover {
+  background-color: #27ae60;
+}
+
+.btn-delete {
+  background-color: #e74c3c;
+}
+
+.btn-delete:hover {
+  background-color: #c0392b;
+}
+
+/* ===== Empty Message ===== */
+.empty-message {
+  color: #999;
+  font-style: italic;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* ===== Calendar ===== */
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.calendar-header h3 {
+  font-size: 20px;
+  color: #333;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  margin-bottom: 30px;
+}
+
+.day-header {
+  text-align: center;
+  font-weight: bold;
+  background-color: #4a90d9;
+  color: white;
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.calendar-day {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 8px;
+  min-height: 60px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.calendar-day:hover {
+  background-color: #e8f0fb;
+}
+
+.calendar-day.today {
+  border: 2px solid #4a90d9;
+}
+
+.calendar-day.selected {
+  background-color: #d0e4f7;
+}
+
+.calendar-day.empty {
+  background-color: #f9f9f9;
+  cursor: default;
+}
+
+.calendar-day .day-number {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.day-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 1px;
+}
+
+.dot-high   { background-color: #e74c3c; }
+.dot-medium { background-color: #f39c12; }
+.dot-low    { background-color: #2ecc71; }
+
+/* ===== Event Panel ===== */
+.event-panel {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.event-panel input,
+.event-panel select {
+  padding: 10px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.event-list-section {
+  margin-top: 10px;
+}
+
+.event-list-section h3 {
+  margin-bottom: 12px;
+  color: #4a90d9;
+}
+
