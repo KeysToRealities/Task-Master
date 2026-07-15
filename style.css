@@ -317,3 +317,46 @@ button:disabled {
   color: #4a90d9;
 }
 
+.timer-card {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.timer-card label {
+    text-align: left;
+}
+
+.timer-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 25px 0;
+}
+
+.timer-buttons button {
+    background-color: #e7e9fa;
+    color: var(--primary-color);
+}
+
+.timer-buttons button:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+#timerDisplay {
+    margin: 30px 0 10px;
+    font-size: 70px;
+}
+
+#timerMessage {
+    color: var(--light-text);
+}
+
+.timer-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 25px;
+}

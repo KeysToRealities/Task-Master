@@ -45,6 +45,74 @@
     </ul>
 
     <p id="emptyMessage" class="empty-message">No tasks yet! Add one above.</p>
+
+    <section id="timer" class="page-section">
+            <div class="section-title">
+                <div>
+                    <h2>Focus Timer</h2>
+
+                    <p>
+                        Track how long you spend working on a task.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timer-card">
+                <label for="timerTask">
+                    Select a Task
+                </label>
+
+                <select id="timerTask">
+                    <option value="">
+                        General Focus Session
+                    </option>
+                </select>
+
+                <div class="timer-buttons">
+                    <button onclick="setTimer(5)">
+                        5 Minutes
+                    </button>
+
+                    <button onclick="setTimer(15)">
+                        15 Minutes
+                    </button>
+
+                    <button onclick="setTimer(25)">
+                        25 Minutes
+                    </button>
+
+                    <button onclick="setTimer(30)">
+                        30 Minutes
+                    </button>
+                </div>
+
+                <h2 id="timerDisplay">25:00</h2>
+
+                <p id="timerMessage">
+                    Select a time and press Start.
+                </p>
+
+                <div class="timer-controls">
+                    <button onclick="startTimer()">
+                        Start
+                    </button>
+
+                    <button
+                        class="secondary-button"
+                        onclick="pauseTimer()"
+                    >
+                        Pause
+                    </button>
+
+                    <button
+                        class="delete-button"
+                        onclick="resetTimer()"
+                    >
+                        Reset
+                    </button>
+                </div>
+            </div>
+        </section>
   </main>
 
   <script src="tasks.js"></script>
