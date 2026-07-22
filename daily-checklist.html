@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Master - Daily Checklist</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <section class="daily-checklist-section">
+
+  <div class="section-title">
+    <h2>Daily Checklist</h2>
+    <p>Track all tasks you want to complete each day.</p>
+  </div>
+
+  <!-- Add checklist item -->
+  <div class="checklist-form">
+
+    <input
+      type="text"
+      id="checklistInput"
+      placeholder="Enter a daily checklist item..."
+    >
+
+    <button onclick="addChecklistItem()">
+      Add Item
+    </button>
+
+  </div>
+
+  <!-- Checklist items appear here -->
+  <ul id="dailyChecklist" class="daily-checklist"></ul>
+
+  <p id="checklistEmptyMessage" class="empty-message">
+    No daily checklist items yet.
+  </p>
+
+  <!-- Checklist progress -->
+  <p id="checklistProgress" class="checklist-progress">
+    0 of 0 completed
+  </p>
+
+</section>
+<script src="daily-checklist.js"></script>
+</body>
+</html>
