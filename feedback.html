@@ -28,15 +28,12 @@
     <p class="subtitle">Have an idea or found a bug? Let us know.</p>
 
     <div class="feedback-form">
+      <input type="text" id="feedbackName" placeholder="Name" />
+      <input type="email" id="feedbackEmail" placeholder="Email" />
+      <input type="tel" id="feedbackPhone" placeholder="Phone Number (optional)" />
       <textarea id="feedbackInput" placeholder="Type your feedback here..." rows="5"></textarea>
-      <button onclick="submitFeedback()">Submit Feedback</button>
+      <button>Submit Feedback</button>
     </div>
-
-    <p id="feedbackMessage" class="feedback-message"></p>
-
-    <h3>Your Feedback</h3>
-    <ul id="feedbackList" class="feedback-list"></ul>
-    <p id="feedbackEmptyMessage" class="empty-message">You haven't submitted any feedback yet.</p>
 
     <div class="contact-info">
       <h3>Other Ways to Reach Us</h3>
@@ -51,6 +48,5 @@
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
   <script src="firebase-config.js"></script>
   <script src="auth-guard.js"></script>
-  <script src="feedback.js"></script>
 </body>
 </html>
