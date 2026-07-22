@@ -10,8 +10,11 @@
     <nav class="navbar">
     <h1 class="logo">Task Master</h1>
     <ul class="nav-links">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="timer.html">Timer</a></li>
       <li><a href="daily-checklist.html" class="active">Daily Checklist</a></li>
-      <li><a href="calendar.html" class="active">Calendar</a></li>
+      <li><a href="calendar.html">Calendar</a></li>
+      <li><button class="logout-button" onclick="logout()">Log Out</button></li>
     </ul>
   </nav>
 
@@ -50,6 +53,11 @@
   </p>
 
 </section>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth-guard.js"></script>
 <script src="daily-checklist.js"></script>
 </body>
 </html>

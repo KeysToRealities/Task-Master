@@ -467,3 +467,202 @@ button:disabled {
     width: 100%;
   }
 }
+
+/* ===== Home Page ===== */
+.hero {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.hero h2 {
+  margin-bottom: 8px;
+}
+
+.hero .subtitle {
+  margin-bottom: 20px;
+}
+
+.hero-text {
+  max-width: 500px;
+  margin: 0 auto;
+  color: #555;
+}
+
+.home-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.home-card {
+  display: block;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  text-decoration: none;
+  color: #333;
+  border-top: 4px solid #4a90d9;
+}
+
+.home-card:hover {
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transform: translateY(-2px);
+}
+
+.home-card h3 {
+  color: #4a90d9;
+  margin-bottom: 8px;
+}
+
+.home-card p {
+  font-size: 14px;
+  color: #666;
+}
+
+/* ===== Welcome Screen ===== */
+.welcome-screen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  background-color: #4a90d9;
+  color: white;
+}
+
+.welcome-logo {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.welcome-tagline {
+  max-width: 420px;
+  font-size: 17px;
+  margin-bottom: 30px;
+}
+
+.welcome-features {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 35px;
+  font-size: 16px;
+}
+
+.welcome-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.welcome-button {
+  display: inline-block;
+  background-color: white;
+  color: #4a90d9;
+  font-size: 17px;
+  font-weight: bold;
+  padding: 12px 30px;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.welcome-button:hover {
+  background-color: #eef4fc;
+  color: #3178b5;
+}
+
+.welcome-button.secondary-button {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.welcome-button.secondary-button:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
+/* ===== Login Screen ===== */
+.login-screen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.login-logo {
+  color: #4a90d9;
+  margin-bottom: 25px;
+}
+
+.login-card {
+  background-color: white;
+  width: 100%;
+  max-width: 320px;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.login-card input {
+  padding: 10px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.login-error {
+  display: none;
+  color: #e74c3c;
+  font-size: 14px;
+}
+
+.login-card h2 {
+  text-align: center;
+  color: #4a90d9;
+  margin-bottom: 5px;
+}
+
+.toggle-mode {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}
+
+.toggle-mode a {
+  color: #4a90d9;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.toggle-mode a:hover {
+  text-decoration: underline;
+}
+
+.secondary-button {
+  background-color: #ddd;
+  color: #333;
+}
+
+.secondary-button:hover {
+  background-color: #bbb;
+}
+
+/* ===== Logout Button ===== */
+.logout-button {
+  background-color: transparent;
+  border: 1px solid white;
+  padding: 6px 12px;
+}
+
+.logout-button:hover {
+  background-color: #3178b5;
+}

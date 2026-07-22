@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Master - Log In</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="login-screen">
+    <h1 class="logo login-logo">Task Master</h1>
+
+    <div class="login-card">
+      <h2 id="formTitle">Log In</h2>
+
+      <input type="text" id="name" placeholder="Name" style="display: none;" />
+      <input type="email" id="email" placeholder="Email" />
+      <input type="password" id="password" placeholder="Password" />
+
+      <p id="loginError" class="login-error"></p>
+
+      <button id="submitBtn">Log In</button>
+
+      <p class="toggle-mode">
+        <span id="toggleModeText">Don't have an account?</span>
+        <a href="#" id="toggleModeLink">Sign Up</a>
+      </p>
+    </div>
+  </main>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="login.js"></script>
+</body>
+</html>

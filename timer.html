@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Master - Task List</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <h1 class="logo">Task Master</h1>
+    <ul class="nav-links">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="tasks.html" class="active">Task List</a></li>
+      <li><a href="daily-checklist.html">Daily Checklist</a></li>
+      <li><a href="calendar.html">Calendar</a></li>
+      <li><button class="logout-button" onclick="logout()">Log Out</button></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container">
+    <h2>My Task List</h2>
+
+    <!-- Add Task Form -->
+    <div class="add-task-form">
+      <input type="text" id="taskInput" placeholder="Enter a new task..." />
+      <select id="prioritySelect">
+        <option value="low">Low Priority</option>
+        <option value="medium" selected>Medium Priority</option>
+        <option value="high">High Priority</option>
+      </select>
+      <button onclick="addTask()">Add Task</button>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="filter-buttons">
+      <button onclick="filterTasks('all')" class="filter-btn active-filter">All</button>
+      <button onclick="filterTasks('high')" class="filter-btn">High</button>
+      <button onclick="filterTasks('medium')" class="filter-btn">Medium</button>
+      <button onclick="filterTasks('low')" class="filter-btn">Low</button>
+    </div>
+
+    <!-- Task List -->
+    <ul id="taskList" class="task-list">
+      <!-- Tasks are added here by JavaScript -->
+    </ul>
+
+    <p id="emptyMessage" class="empty-message">No tasks yet! Add one above.</p>
+
+    <section id="timer" class="page-section">
+            <div class="section-title">
+                <div>
+                    <h2>Focus Timer</h2>
+
+                    <p>
+                        Track how long you spend working on a task.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timer-card">
+                <label for="timerTask">
+                    Select a Task
+                </label>
+
+                <select id="timerTask">
+                    <option value="">
+                        General Focus Session
+                    </option>
+                </select>
+
+                <div class="timer-buttons">
+                    <button onclick="setTimer(5)">
+                        5 Minutes
+                    </button>
+
+                    <button onclick="setTimer(15)">
+                        15 Minutes
+                    </button>
+
+                    <button onclick="setTimer(25)">
+                        25 Minutes
+                    </button>
+
+                    <button onclick="setTimer(30)">
+                        30 Minutes
+                    </button>
+                </div>
+
+                <h2 id="timerDisplay">25:00</h2>
+
+                <p id="timerMessage">
+                    Select a time and press Start.
+                </p>
+
+                <div class="timer-controls">
+                    <button onclick="startTimer()">
+                        Start
+                    </button>
+
+                    <button
+                        class="secondary-button"
+                        onclick="pauseTimer()"
+                    >
+                        Pause
+                    </button>
+
+                    <button
+                        class="delete-button"
+                        onclick="resetTimer()"
+                    >
+                        Reset
+                    </button>
+                </div>
+            </div>
+        </section>
+  </main>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="auth-guard.js"></script>
+  <script src="timer.js"></script>
+</body>
+</html>

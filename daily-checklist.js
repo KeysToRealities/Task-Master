@@ -1,52 +1,45 @@
-var savedChecklist =
-  localStorage.getItem("taskMasterDailyChecklist");
-
-// Create the checklist array
 var dailyChecklist = [];
+var todayDate = new Date().toLocaleDateString("en-CA");
+var checklistDocRef = null;
 
-// Load saved checklist items
-if (savedChecklist !== null) {
-  dailyChecklist = JSON.parse(savedChecklist);
-}
-
-
-// Get the date when the checklist was last used
-var savedChecklistDate =
-  localStorage.getItem("taskMasterChecklistDate");
-
-// Get today's date
-var todayDate =
-  new Date().toLocaleDateString("en-CA");
-
-
-// Reset completed items when a new day begins
-if (savedChecklistDate !== todayDate) {
-
-  for (var i = 0; i < dailyChecklist.length; i++) {
-    dailyChecklist[i].completed = false;
+// Load the checklist once we know who's logged in.
+auth.onAuthStateChanged(function (user) {
+  if (!user) {
+    return;
   }
 
-  localStorage.setItem(
-    "taskMasterChecklistDate",
-    todayDate
-  );
+  checklistDocRef = db.collection("checklists").doc(user.uid);
 
-  saveDailyChecklist();
-}
+  checklistDocRef.get().then(function (doc) {
+    if (doc.exists) {
+      var data = doc.data();
+      dailyChecklist = data.items || [];
+
+      // Reset completed items when a new day begins
+      if (data.date !== todayDate) {
+        for (var i = 0; i < dailyChecklist.length; i++) {
+          dailyChecklist[i].completed = false;
+        }
+        saveDailyChecklist();
+      }
+    }
+
+    renderDailyChecklist();
+  });
+});
 
 
-// Save the checklist in the browser
+// Save the checklist to Firestore
 function saveDailyChecklist() {
 
-  localStorage.setItem(
-    "taskMasterDailyChecklist",
-    JSON.stringify(dailyChecklist)
-  );
+  if (!checklistDocRef) {
+    return;
+  }
 
-  localStorage.setItem(
-    "taskMasterChecklistDate",
-    todayDate
-  );
+  checklistDocRef.set({
+    items: dailyChecklist,
+    date: todayDate
+  });
 }
 
 
@@ -265,6 +258,3 @@ if (checklistInput) {
     }
   );
 }
-
-
-renderDailyChecklist();

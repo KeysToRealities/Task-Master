@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Task Master</title>
+  <title>Task Master - Home</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -12,110 +12,48 @@
   <nav class="navbar">
     <h1 class="logo">Task Master</h1>
     <ul class="nav-links">
+      <li><a href="home.html" class="active">Home</a></li>
+      <li><a href="timer.html">Timer</a></li>
       <li><a href="daily-checklist.html">Daily Checklist</a></li>
       <li><a href="calendar.html">Calendar</a></li>
+      <li><button class="logout-button" onclick="logout()">Log Out</button></li>
     </ul>
   </nav>
 
-  <!-- Main Content -->
+  <!-- Welcome / Home Content -->
   <main class="container">
-    <h2>My Task List</h2>
+    <section class="hero">
+      <h2 id="greeting">Welcome to Task Master</h2>
+      <p id="todayDate" class="subtitle"></p>
+      <p class="hero-text">
+        Stay on top of your day. Tick off your daily checklist,
+        plan ahead on the calendar, and use the focus timer to get things done.
+      </p>
+    </section>
 
-    <!-- Add Task Form -->
-    <div class="add-task-form">
-      <input type="text" id="taskInput" placeholder="Enter a new task..." />
-      <select id="prioritySelect">
-        <option value="low">Low Priority</option>
-        <option value="medium" selected>Medium Priority</option>
-        <option value="high">High Priority</option>
-      </select>
-      <button onclick="addTask()">Add Task</button>
-    </div>
+    <section class="home-cards">
+      <a class="home-card" href="daily-checklist.html">
+        <h3>Daily Checklist</h3>
+        <p>Keep up with the things you want to do every day.</p>
+      </a>
 
-    <!-- Filter Buttons -->
-    <div class="filter-buttons">
-      <button onclick="filterTasks('all')" class="filter-btn active-filter">All</button>
-      <button onclick="filterTasks('high')" class="filter-btn">High</button>
-      <button onclick="filterTasks('medium')" class="filter-btn">Medium</button>
-      <button onclick="filterTasks('low')" class="filter-btn">Low</button>
-    </div>
+      <a class="home-card" href="calendar.html">
+        <h3>Calendar</h3>
+        <p>Schedule tasks on specific dates and plan ahead.</p>
+      </a>
 
-    <!-- Task List -->
-    <ul id="taskList" class="task-list">
-      <!-- Tasks are added here by JavaScript -->
-    </ul>
-
-    <p id="emptyMessage" class="empty-message">No tasks yet! Add one above.</p>
-
-    <section id="timer" class="page-section">
-            <div class="section-title">
-                <div>
-                    <h2>Focus Timer</h2>
-
-                    <p>
-                        Track how long you spend working on a task.
-                    </p>
-                </div>
-            </div>
-
-            <div class="timer-card">
-                <label for="timerTask">
-                    Select a Task
-                </label>
-
-                <select id="timerTask">
-                    <option value="">
-                        General Focus Session
-                    </option>
-                </select>
-
-                <div class="timer-buttons">
-                    <button onclick="setTimer(5)">
-                        5 Minutes
-                    </button>
-
-                    <button onclick="setTimer(15)">
-                        15 Minutes
-                    </button>
-
-                    <button onclick="setTimer(25)">
-                        25 Minutes
-                    </button>
-
-                    <button onclick="setTimer(30)">
-                        30 Minutes
-                    </button>
-                </div>
-
-                <h2 id="timerDisplay">25:00</h2>
-
-                <p id="timerMessage">
-                    Select a time and press Start.
-                </p>
-
-                <div class="timer-controls">
-                    <button onclick="startTimer()">
-                        Start
-                    </button>
-
-                    <button
-                        class="secondary-button"
-                        onclick="pauseTimer()"
-                    >
-                        Pause
-                    </button>
-
-                    <button
-                        class="delete-button"
-                        onclick="resetTimer()"
-                    >
-                        Reset
-                    </button>
-                </div>
-            </div>
-        </section>
+      <a class="home-card" href="timer.html">
+        <h3>Focus Timer</h3>
+        <p>Run a timed focus session to stay productive.</p>
+      </a>
+    </section>
   </main>
 
-  <script src="tasks.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="auth-guard.js"></script>
+  <script src="home.js"></script>
 </body>
 </html>
