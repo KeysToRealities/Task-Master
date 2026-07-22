@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Task Master - Home</title>
+  <title>Task Master - Feedback</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -12,43 +12,38 @@
   <nav class="navbar">
     <h1 class="logo">Task Master</h1>
     <ul class="nav-links">
-      <li><a href="home.html" class="active">Home</a></li>
+      <li><a href="home.html">Home</a></li>
       <li><a href="timer.html">Timer</a></li>
       <li><a href="daily-checklist.html">Daily Checklist</a></li>
       <li><a href="calendar.html">Calendar</a></li>
-      <li><a href="feedback.html">Feedback</a></li>
+      <li><a href="feedback.html" class="active">Feedback</a></li>
       <li><a href="about.html">About</a></li>
       <li><button class="logout-button" onclick="logout()">Log Out</button></li>
     </ul>
   </nav>
 
-  <!-- Welcome / Home Content -->
+  <!-- Main Content -->
   <main class="container">
-    <section class="hero">
-      <h2 id="greeting">Welcome to Task Master</h2>
-      <p id="todayDate" class="subtitle"></p>
-      <p class="hero-text">
-        Stay on top of your day. Tick off your daily checklist,
-        plan ahead on the calendar, and use the focus timer to get things done.
-      </p>
-    </section>
+    <h2>Feedback</h2>
+    <p class="subtitle">Have an idea or found a bug? Let us know.</p>
 
-    <section class="home-cards">
-      <a class="home-card" href="daily-checklist.html">
-        <h3>Daily Checklist</h3>
-        <p>Keep up with the things you want to do every day.</p>
-      </a>
+    <div class="feedback-form">
+      <textarea id="feedbackInput" placeholder="Type your feedback here..." rows="5"></textarea>
+      <button onclick="submitFeedback()">Submit Feedback</button>
+    </div>
 
-      <a class="home-card" href="calendar.html">
-        <h3>Calendar</h3>
-        <p>Schedule tasks on specific dates and plan ahead.</p>
-      </a>
+    <p id="feedbackMessage" class="feedback-message"></p>
 
-      <a class="home-card" href="timer.html">
-        <h3>Focus Timer</h3>
-        <p>Run a timed focus session to stay productive.</p>
-      </a>
-    </section>
+    <h3>Your Feedback</h3>
+    <ul id="feedbackList" class="feedback-list"></ul>
+    <p id="feedbackEmptyMessage" class="empty-message">You haven't submitted any feedback yet.</p>
+
+    <div class="contact-info">
+      <h3>Other Ways to Reach Us</h3>
+      <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+      <p>Twitter / X: <a href="#">@yourhandle</a></p>
+      <p>Instagram: <a href="#">@yourhandle</a></p>
+    </div>
   </main>
 
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
@@ -56,6 +51,6 @@
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
   <script src="firebase-config.js"></script>
   <script src="auth-guard.js"></script>
-  <script src="home.js"></script>
+  <script src="feedback.js"></script>
 </body>
 </html>

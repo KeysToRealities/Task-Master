@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Task Master - Home</title>
+  <title>Task Master - About</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -12,43 +12,38 @@
   <nav class="navbar">
     <h1 class="logo">Task Master</h1>
     <ul class="nav-links">
-      <li><a href="home.html" class="active">Home</a></li>
+      <li><a href="home.html">Home</a></li>
       <li><a href="timer.html">Timer</a></li>
       <li><a href="daily-checklist.html">Daily Checklist</a></li>
       <li><a href="calendar.html">Calendar</a></li>
       <li><a href="feedback.html">Feedback</a></li>
-      <li><a href="about.html">About</a></li>
+      <li><a href="about.html" class="active">About</a></li>
       <li><button class="logout-button" onclick="logout()">Log Out</button></li>
     </ul>
   </nav>
 
-  <!-- Welcome / Home Content -->
+  <!-- Main Content -->
   <main class="container">
-    <section class="hero">
-      <h2 id="greeting">Welcome to Task Master</h2>
-      <p id="todayDate" class="subtitle"></p>
-      <p class="hero-text">
-        Stay on top of your day. Tick off your daily checklist,
-        plan ahead on the calendar, and use the focus timer to get things done.
-      </p>
-    </section>
+    <h2>About Task Master</h2>
+    <p class="subtitle">
+      Task Master is a simple productivity app for planning your day,
+      building daily habits, and staying focused.
+    </p>
 
-    <section class="home-cards">
-      <a class="home-card" href="daily-checklist.html">
-        <h3>Daily Checklist</h3>
-        <p>Keep up with the things you want to do every day.</p>
-      </a>
+    <div class="about-section">
+      <h3>Features</h3>
+      <ul class="about-list">
+        <li>Daily Checklist &mdash; track recurring habits, reset each day</li>
+        <li>Calendar &mdash; plan tasks on specific dates</li>
+        <li>Focus Timer &mdash; run timed focus sessions</li>
+        <li>Feedback &mdash; tell us what's working and what's not</li>
+      </ul>
+    </div>
 
-      <a class="home-card" href="calendar.html">
-        <h3>Calendar</h3>
-        <p>Schedule tasks on specific dates and plan ahead.</p>
-      </a>
-
-      <a class="home-card" href="timer.html">
-        <h3>Focus Timer</h3>
-        <p>Run a timed focus session to stay productive.</p>
-      </a>
-    </section>
+    <div class="about-section">
+      <h3>Built With</h3>
+      <p>HTML, CSS, and JavaScript, with Firebase for accounts and data.</p>
+    </div>
   </main>
 
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
@@ -56,6 +51,5 @@
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
   <script src="firebase-config.js"></script>
   <script src="auth-guard.js"></script>
-  <script src="home.js"></script>
 </body>
 </html>

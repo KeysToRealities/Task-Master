@@ -1,5 +1,6 @@
 var selectedMinutes = 25;
-var timeRemaining = selectedMinutes * 60;
+var totalSeconds = selectedMinutes * 60;
+var timeRemaining = totalSeconds;
 
 // Stores the setInterval used to run the timer.
 var timerInterval = null;
@@ -16,9 +17,12 @@ function setTimer(minutes) {
   clearInterval(timerInterval);
 
   selectedMinutes = minutes;
-  timeRemaining = minutes * 60;
+  totalSeconds = minutes * 60;
+  timeRemaining = totalSeconds;
   timerRunning = false;
 
+  document.getElementById("timerRing").classList.remove("timer-complete");
+  updateActiveDurationButton();
   updateTimerDisplay();
 
   document.getElementById("timerMessage").textContent =
@@ -62,6 +66,7 @@ function startTimer() {
       timeRemaining = 0;
 
       updateTimerDisplay();
+      document.getElementById("timerRing").classList.add("timer-complete");
 
       document.getElementById("timerMessage").textContent =
         "Time is up! Great work!";
@@ -100,8 +105,9 @@ function resetTimer() {
 
   timerInterval = null;
   timerRunning = false;
-  timeRemaining = selectedMinutes * 60;
+  timeRemaining = totalSeconds;
 
+  document.getElementById("timerRing").classList.remove("timer-complete");
   updateTimerDisplay();
 
   document.getElementById("timerMessage").textContent =
@@ -109,8 +115,24 @@ function resetTimer() {
 }
 
 /*
-  Converts the remaining seconds into
-  the MM:SS format and updates the page.
+  Highlights whichever duration button matches
+  the currently selected number of minutes.
+*/
+function updateActiveDurationButton() {
+  var buttons = document.querySelectorAll(".duration-btn");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (Number(buttons[i].dataset.minutes) === selectedMinutes) {
+      buttons[i].classList.add("active");
+    } else {
+      buttons[i].classList.remove("active");
+    }
+  }
+}
+
+/*
+  Converts the remaining seconds into the MM:SS format,
+  updates the page, and fills in the progress ring.
 */
 function updateTimerDisplay() {
   var minutes = Math.floor(timeRemaining / 60);
@@ -136,6 +158,11 @@ function updateTimerDisplay() {
 
   document.getElementById("timerDisplay").textContent =
     minuteDisplay + ":" + secondDisplay;
+
+  var percentRemaining = totalSeconds > 0 ? (timeRemaining / totalSeconds) * 360 : 0;
+
+  document.getElementById("timerRing").style.background =
+    "conic-gradient(#4a90d9 " + percentRemaining + "deg, #e7e9fa " + percentRemaining + "deg)";
 }
 
 // Display the starting time when the page loads.

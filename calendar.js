@@ -1,6 +1,7 @@
 // events object: keys are "YYYY-MM-DD", values are arrays of event objects
 var events = {};
 var selectedDate = null;
+var eventsDocRef = null;
 
 var today = new Date();
 var currentMonth = today.getMonth();
@@ -10,6 +11,32 @@ var monthNames = [
   "January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
 ];
+
+// Load this user's saved events once we know who's logged in.
+auth.onAuthStateChanged(function (user) {
+  if (!user) {
+    return;
+  }
+
+  eventsDocRef = db.collection("calendarEvents").doc(user.uid);
+
+  eventsDocRef.get().then(function (doc) {
+    if (doc.exists) {
+      events = doc.data().events || {};
+    }
+
+    renderCalendar();
+    renderEvents();
+  });
+});
+
+function saveEvents() {
+  if (!eventsDocRef) {
+    return;
+  }
+
+  eventsDocRef.set({ events: events });
+}
 
 function changeMonth(direction) {
   currentMonth += direction;
@@ -134,6 +161,7 @@ function addEvent() {
   });
 
   input.value = "";
+  saveEvents();
   renderCalendar();
   renderEvents();
 }
@@ -146,6 +174,7 @@ function deleteEvent(dateKey, id) {
       break;
     }
   }
+  saveEvents();
   renderCalendar();
   renderEvents();
 }
@@ -195,5 +224,7 @@ function renderEvents() {
   }
 }
 
-// Start the calendar on page load
-renderCalendar();
+// Paint the calendar grid immediately, with today auto-selected;
+// auth state above will refill it with this user's saved events
+// once Firestore responds.
+selectDate(buildDateKey(currentYear, currentMonth, today.getDate()), today.getDate());

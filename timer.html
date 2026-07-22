@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Task Master - Task List</title>
+  <title>Task Master - Timer</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -13,110 +13,46 @@
     <h1 class="logo">Task Master</h1>
     <ul class="nav-links">
       <li><a href="home.html">Home</a></li>
-      <li><a href="tasks.html" class="active">Task List</a></li>
+      <li><a href="timer.html" class="active">Timer</a></li>
       <li><a href="daily-checklist.html">Daily Checklist</a></li>
       <li><a href="calendar.html">Calendar</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+      <li><a href="about.html">About</a></li>
       <li><button class="logout-button" onclick="logout()">Log Out</button></li>
     </ul>
   </nav>
 
   <!-- Main Content -->
   <main class="container">
-    <h2>My Task List</h2>
-
-    <!-- Add Task Form -->
-    <div class="add-task-form">
-      <input type="text" id="taskInput" placeholder="Enter a new task..." />
-      <select id="prioritySelect">
-        <option value="low">Low Priority</option>
-        <option value="medium" selected>Medium Priority</option>
-        <option value="high">High Priority</option>
-      </select>
-      <button onclick="addTask()">Add Task</button>
-    </div>
-
-    <!-- Filter Buttons -->
-    <div class="filter-buttons">
-      <button onclick="filterTasks('all')" class="filter-btn active-filter">All</button>
-      <button onclick="filterTasks('high')" class="filter-btn">High</button>
-      <button onclick="filterTasks('medium')" class="filter-btn">Medium</button>
-      <button onclick="filterTasks('low')" class="filter-btn">Low</button>
-    </div>
-
-    <!-- Task List -->
-    <ul id="taskList" class="task-list">
-      <!-- Tasks are added here by JavaScript -->
-    </ul>
-
-    <p id="emptyMessage" class="empty-message">No tasks yet! Add one above.</p>
-
     <section id="timer" class="page-section">
-            <div class="section-title">
-                <div>
-                    <h2>Focus Timer</h2>
+      <div class="section-title">
+        <h2>Focus Timer</h2>
+        <p>Track how long you spend working on a task.</p>
+      </div>
 
-                    <p>
-                        Track how long you spend working on a task.
-                    </p>
-                </div>
-            </div>
+      <div class="timer-card">
+        <div class="timer-buttons">
+          <button class="duration-btn" data-minutes="5" onclick="setTimer(5)">5 Min</button>
+          <button class="duration-btn" data-minutes="15" onclick="setTimer(15)">15 Min</button>
+          <button class="duration-btn active" data-minutes="25" onclick="setTimer(25)">25 Min</button>
+          <button class="duration-btn" data-minutes="30" onclick="setTimer(30)">30 Min</button>
+        </div>
 
-            <div class="timer-card">
-                <label for="timerTask">
-                    Select a Task
-                </label>
+        <div class="timer-ring" id="timerRing">
+          <div class="timer-ring-inner">
+            <h2 id="timerDisplay">25:00</h2>
+          </div>
+        </div>
 
-                <select id="timerTask">
-                    <option value="">
-                        General Focus Session
-                    </option>
-                </select>
+        <p id="timerMessage">Select a time and press Start.</p>
 
-                <div class="timer-buttons">
-                    <button onclick="setTimer(5)">
-                        5 Minutes
-                    </button>
-
-                    <button onclick="setTimer(15)">
-                        15 Minutes
-                    </button>
-
-                    <button onclick="setTimer(25)">
-                        25 Minutes
-                    </button>
-
-                    <button onclick="setTimer(30)">
-                        30 Minutes
-                    </button>
-                </div>
-
-                <h2 id="timerDisplay">25:00</h2>
-
-                <p id="timerMessage">
-                    Select a time and press Start.
-                </p>
-
-                <div class="timer-controls">
-                    <button onclick="startTimer()">
-                        Start
-                    </button>
-
-                    <button
-                        class="secondary-button"
-                        onclick="pauseTimer()"
-                    >
-                        Pause
-                    </button>
-
-                    <button
-                        class="delete-button"
-                        onclick="resetTimer()"
-                    >
-                        Reset
-                    </button>
-                </div>
-            </div>
-        </section>
+        <div class="timer-controls">
+          <button onclick="startTimer()">Start</button>
+          <button class="secondary-button" onclick="pauseTimer()">Pause</button>
+          <button class="reset-button" onclick="resetTimer()">Reset</button>
+        </div>
+      </div>
+    </section>
   </main>
 
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
