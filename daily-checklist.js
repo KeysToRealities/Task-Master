@@ -206,7 +206,6 @@ function toggleChecklistItem(id) {
 }
 
 
-// Delete a checklist item
 function deleteChecklistItem(id) {
 
   var updatedChecklist = [];
@@ -225,7 +224,6 @@ function deleteChecklistItem(id) {
 }
 
 
-// Update the checklist completion count
 function updateChecklistProgress() {
 
   var checklistProgress =
@@ -252,7 +250,6 @@ function updateChecklistProgress() {
 }
 
 
-// Allow the Enter key to add an item
 var checklistInput =
   document.getElementById("checklistInput");
 
@@ -270,5 +267,4 @@ if (checklistInput) {
 }
 
 
-// Display the saved checklist when the page opens
 renderDailyChecklist();
